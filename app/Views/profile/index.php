@@ -33,12 +33,7 @@
 
 
                                       <tbody>
-
-
                                           <tr role="row" class="odd">
-                                              <!-- <td class="sorting_1">
-                                              1
-                                          </td> -->
                                               <td style="width: 470px;">
                                                   <?= $row['profile_desc']; ?>
                                               </td>
@@ -57,7 +52,6 @@
                                                           <i class="far fa-trash-alt"></i></button>
                                                   </form>
                                               </td>
-
                                           </tr>
                                       </tbody>
 

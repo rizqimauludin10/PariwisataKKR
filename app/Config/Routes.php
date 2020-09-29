@@ -31,7 +31,15 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Admin::index');
+$routes->get('/', 'F_home::index');
+$routes->get('/login.fh', 'Admin::index');
+$routes->get('/f_destinasi.fh', 'F_destinasi::index');
+$routes->get('/f_event.fh', 'F_event::index');
+$routes->get('/wisata/detail/(:segment)', 'Wisata::getDetailWisata/$1');
+$routes->get('/f_wisata/detail/(:segment)', 'F_destinasi::detail/$1');
+$routes->get('/wisata/detail.fh', 'Wisata::detail');
+
+//$routes->get('/f_destinasi.fh', 'F_destinasi::getAllDestination');
 //$routes->get('register', 'Admin::register');
 //$routes['admin'] = 'admin/overview';
 

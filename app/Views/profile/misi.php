@@ -16,8 +16,6 @@
                             <input type="hidden" class="form-control form-control-user" id="idMisi" name="idMisi" value="<?= $row['id']; ?>">
                         </div>
 
-
-
                         <div class="form-group">
                             <input type="text" class="form-control form-control-user" id="misiTitle" name="misiTitle" placeholder="Misi Title" value="<?= $row['misi_title']; ?>">
                         </div>
