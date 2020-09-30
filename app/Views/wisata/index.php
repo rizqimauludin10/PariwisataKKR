@@ -20,13 +20,13 @@
                         <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info">
                             <thead>
                                 <tr role="row">
-                                    <th class="sorting" tabindex="0" aria-controls="essay-table" rowspan="1" colspan="1" style="width: 20%;" aria-sort="ascending"> Nama Wisata </th>
-                                    <th class="sorting" tabindex="0" aria-controls="essay-table" rowspan="1" colspan="1" style="width: 20%;"> Operasional </th>
-                                    <th class="sorting" tabindex="0" aria-controls="essay-table" rowspan="1" colspan="1" style="width: 20%;"> Alamat </th>
-                                    <th class="sorting" tabindex="0" aria-controls="essay-table" rowspan="1" colspan="1" style="width: 20%;"> Kontak </th>
-                                    <th class="sorting" tabindex="0" aria-controls="essay-table" rowspan="1" colspan="1" style="width: 20%;"> Fasilitas </th>
+                                    <th class="sorting" tabindex="0" aria-controls="essay-table" rowspan="1" colspan="1" aria-sort="ascending"> Nama Wisata </th>
+                                    <th class="sorting" tabindex="0" aria-controls="essay-table" rowspan="1" colspan="1"> Kategori </th>
+                                    <th class="sorting" tabindex="0" aria-controls="essay-table" rowspan="1" colspan="1"> Alamat </th>
+                                    <th class="sorting" tabindex="0" aria-controls="essay-table" rowspan="1" colspan="1"> Kontak </th>
+                                    <th class="sorting" tabindex="0" aria-controls="essay-table" rowspan="1" colspan="1"> Fasilitas </th>
 
-                                    <th class="sorting" tabindex="0" aria-controls="essay-table" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 18%">Action</th>
+                                    <th class="sorting" tabindex="0" aria-controls="essay-table" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending"">Action</th>
                                 </tr>
                             </thead>
 
@@ -34,40 +34,40 @@
                                 <tbody>
 
 
-                                    <tr role="row" class="odd">
-                                        <td>
-                                            <?= $row['wisata_name'] ?>
-                                        </td>
+                                    <tr role=" row" class="odd">
+                                    <td>
+                                        <?= $row['wisata_name'] ?>
+                                    </td>
 
-                                        <td>
-                                            <?= $row['wisata_operational']; ?>
-                                        </td>
+                                    <td>
+                                        <?= $row['nama_kategori']; ?>
+                                    </td>
 
-                                        <td>
-                                            <?= $row['wisata_address']; ?>
-                                        </td>
+                                    <td>
+                                        <?= $row['wisata_address']; ?>
+                                    </td>
 
-                                        <td>
-                                            <?= $row['wisata_contact']; ?>
-                                        </td>
+                                    <td>
+                                        <?= $row['wisata_contact']; ?>
+                                    </td>
 
-                                        <td>
-                                            <?= $row['wisata_facility']; ?>
-                                        </td>
-                                        <td>
+                                    <td>
+                                        <?= $row['wisata_facility']; ?>
+                                    </td>
+                                    <td>
 
-                                            <form action="/wisata/detail/<?= $row['wisata_slug']; ?>" method="POST" style="display: inline-block;">
-                                                <button type="submit" class="btn btn-primary right">
-                                                    <i class="far fa-eye"></i></button>
-                                            </form>
+                                        <form action="/wisata/detail/<?= $row['wisata_slug']; ?>" method="POST" style="display: inline-block;">
+                                            <button type="submit" class="btn btn-primary">
+                                                <i class="far fa-eye"></i></button>
+                                        </form>
 
-                                            <form action="<?= base_url('wisata/deleteWisata/' . $row['id']) ?>" method="POST" style="display: inline-block;">
-                                                <button type="submit" class="btn btn-danger">
-                                                    <i class="far fa-trash-alt"></i></button>
-                                            </form>
-                                        </td>
+                                        <form action="<?= base_url('wisata/deleteWisata/' . $row['wisata_slug']) ?>" method="POST" style="display: inline-block;">
+                                            <button type="submit" class="btn btn-danger">
+                                                <i class="far fa-trash-alt"></i></button>
+                                        </form>
+                                    </td>
 
-                                    </tr>
+                                </tr>
                                 </tbody>
                             <?php endforeach; ?>
 

@@ -9,9 +9,11 @@ use App\Models\M_kategori;
 class Wisata extends BaseController
 {
     protected $wisataModel;
+    protected $kategoriModel;
     public function __construct()
     {
         $this->wisataModel = new M_wisata();
+        $this->kategoriModel = new M_kategori();
     }
     public function index()
     {
@@ -51,15 +53,16 @@ class Wisata extends BaseController
         $builder = $db->table('wisata');
 
         $filePoster = $this->request->getFile('destinasiPoster');
-        //$filePoster2 = $this->request->getFile('galleriFile');
+
+        // $validate =  $this->validate([
+        //     'wisata_poster' => 'uploaded[wisata_poster]|mime_in[wisata_poster,image/jpg,image/gif,image/jpeg,image/png]|max_size[wisata_poster,2000]'
+        // ]);
+
         if ($filePoster->getError() == 4) {
             $namePosterFile = 'defaultimage.png';
-            //$namePosterFile2 = 'defaultimage.png';
         } else {
             $namePosterFile = $filePoster->getRandomName();
-            //$namePosterFile2 = $filePoster2->getRandomName();
             $filePoster->move('img/wisata', $namePosterFile);
-            //$filePoster2->move('img/wisata/gallerywisata', $namePosterFile2);
         }
 
         $model = new M_wisata();
@@ -81,49 +84,56 @@ class Wisata extends BaseController
 
         ];
 
-        //$builder->insert($data);
         $model->insert($data);
-        // $last_id = $db->insertID();
+        $last_id = $db->insertID();
 
-        // $data2 = [
-        //     'id_wisata' => $last_id,
-        //     'galleri_name' => $this->request->getVar('galleri_name'),
-        //     'galleri_desc' => $this->request->getVar('galleri_desc'),
-        //     'gallery_file' => $namePosterFile2
-        // ];
+        $file_image = $this->request->getFiles();
 
-        // $model2->insert($data2);
-        session()->setFlashdata('success', 'Berhasil upload');
+
+
+        foreach ($file_image['destinasiUpload'] as $img) {
+            $gallery_file = $img->getRandomName();
+            $img->move('img/wisata/gallerywisata', $gallery_file);
+
+            $destinasi_gallery = [
+                'id_wisata' => $last_id,
+                // 'gallery_file' => $img->getRandomName()
+                'gallery_file' => $gallery_file
+            ];
+
+            $model2->insert($destinasi_gallery);
+            // $img->move('img/wisata/gallerywisata', $img->getRandomName());
+        }
+        // session()->setFlashdata('success', 'Berhasil upload');
         return redirect()->to(base_url('wisata'));
     }
 
 
-    public function deleteWisata($id)
+    public function deleteWisata($slug)
     {
         $model = new M_wisata();
-        $model->deleteWisata($id);
+        $model->deleteWisata($slug);
         return redirect()->to(base_url('wisata'));
     }
 
     public function detailWisata($slug)
     {
-        $model = new M_wisata();
         $data = [
             'title' => 'Detail Wisata',
-            'wisata' => $this->wisataModel->getWisataAll($slug)
+            'wisata' => $this->wisataModel->getWisata($slug),
+            'gallery' => $this->wisataModel->getWisataGallery($slug)
         ];
-
-        return view('wisata/detail', $data);
     }
 
     public function detail($slug)
     {
-        // $data = $this->wisataModel->where(['wisata_slug' => $slug])->first();
         $data = [
             'title' => 'Detail Wisata',
-            'wisata' => $this->wisataModel->getWisataAll($slug)
+            'wisata' => $this->wisataModel->getWisata($slug),
+            'gallery' => $this->wisataModel->getWisataGallery($slug)
 
         ];
+
 
         echo view('admin/_partials/partial_header');
         echo view('admin/_partials/partial_sidebar');

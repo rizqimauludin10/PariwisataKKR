@@ -8,7 +8,7 @@ class M_galleriWisata extends Model
 {
     protected $table = 'gallery_wisata';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['id_wisata', 'galleri_name', 'galleri_desc', 'gallery_file', 'updated_at'];
+    protected $allowedFields = ['id_wisata', 'gallery_file', 'updated_at'];
     protected $useTimestamps = true;
     protected $createdField  = 'created_at';
 

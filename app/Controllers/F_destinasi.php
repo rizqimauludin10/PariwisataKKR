@@ -41,7 +41,6 @@ class F_destinasi extends BaseController
 
     public function detailDestination($slug = false)
     {
-        $model = new M_wisata();
         $data = [
             'title' => 'Detail Wisata',
             'wisata' => $this->wisataModel->getWisataAll($slug)

@@ -9,7 +9,7 @@
                     <div class="col-md-12">
 
                         <div class="col-md-4 mb-3" style="display: inline-block;">
-                            <img src="/img/defaultimage.png" class="img-thumbnail img-preview">
+                            <img src="/img/wisata/<?= $wisata['wisata_poster'] ?>" class="img-thumbnail img-preview">
                         </div>
 
                         <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
@@ -24,14 +24,13 @@
                                     <th class="sorting" tabindex="0" aria-controls="essay-table" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending">Alamat</th>
                                 </tr>
                             </thead>
-
                             <tbody>
                                 <tr role="row" class="odd">
                                     <td>
                                         <b> <label for="label">Nama Destinasi </label> </b>
                                     </td>
                                     <td colspan="2">
-                                        <label for="label1">Destinasi</label>
+                                        <label for="label1"><?= $wisata['wisata_name'] ?> </label>
                                     </td>
 
                                 </tr>
@@ -47,15 +46,24 @@
 
                         <div class="col-md-4" style="display: block">
                             <b> <label for="label">Kategori Destinasi : </label> </b>
-                            <label for="label1"><?= $wisata['wisata_name']; ?></label>
+                            <label for="label1"><?= $wisata['nama_kategori'] ?></label>
                         </div>
 
-                        <div class="col-md-4" style="display: block">
-                            <b> <label for="label">Deskripsi : </label> </b>
-                            <label for="label1">Deskripsi</label>
-                        </div>
 
-                        <table class="table table-borderless">
+                        <?php foreach ($gallery as $row) : ?>
+                            <div class="col-md-4 mb-3" style="display: inline-block;">
+                                <img src="/img/wisata/gallerywisata/<?= $row['gallery_file'] ?>" class="img-thumbnail img-preview">
+                            </div>
+                        <?php endforeach; ?>
+
+
+
+
+
+
+
+
+                        <!-- <table class="table table-borderless">
                             <thead>
                                 <tr>
 
@@ -71,7 +79,8 @@
                                     <td>@twitter</td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table> -->
+
 
 
 

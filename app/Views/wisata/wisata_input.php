@@ -100,9 +100,12 @@
                                 <button type="submit" class="btn btn-success">Tambah Foto</button>
                             </div> -->
 
-                            <form method="post" action="upload-page.php" enctype="multipart/form-data">
-                                <input name="filesToUpload[]" id="filesToUpload" type="file" multiple="" />
-                            </form>
+
+                            <div class="form-group" style="margin-top: 20px;">
+                                <label for="posterUpload">Upload Gallery Foto Destinasi </label>
+                                <input class="form-control" name="destinasiUpload[]" id="destinasiUpload" type="file" multiple="true" />
+                            </div>
+
 
 
                             <hr>

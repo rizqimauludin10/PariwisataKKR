@@ -14,29 +14,48 @@ class M_wisata extends Model
     protected $useTimestamps = true;
     protected $createdField  = 'created_at';
 
-    public function getWisata($id = false)
+    public function getWisataAll()
     {
-        if ($id == false) {
-            return $this->db->table('wisata')
-                ->join('kategori', 'kategori.id=wisata.id')
-                ->get()->getResultArray();
-        } else {
-            return $this->getWhere(['id' => $id]);
-        }
+
+        return $this->db->table('wisata')
+            ->join('kategori', 'kategori.id=wisata.id_kategori')
+            ->get()->getResultArray();
     }
 
-    public function getWisataAll($slug = false)
+
+    public function getWisata($slug = false)
     {
         if ($slug == false) {
             return $this->findAll();
         }
 
-        return $this->where(['wisata_slug'  => $slug])->first();
+        // return $this->db->table('wisata')
+        //     ->join('kategori', 'kategori.id=wisata.id_kategori', 'left')
+        //     ->join('gallery_wisata', 'gallery_wisata.id_wisata=wisata.id', 'left')
+        //     ->where('wisata.wisata_slug', $slug)
+        //     ->get()
+        //     ->getRowArray();
+
+        $this->db->table('wisata');
+        $this->join('kategori', 'kategori.id=wisata.id_kategori');
+        $this->where('wisata.wisata_slug', $slug);
+        $data1 = $this->get()->getRowArray();
+
+        return $data1;
     }
 
-    public function deleteWisata($id)
+    public function getWisataGallery($slug)
     {
-        $query = $this->db->table('wisata')->delete(array('id' => $id));
-        return $query;
+        $this->db->table('wisata');
+        $this->join('gallery_wisata', 'gallery_wisata.id_wisata=wisata.id');
+        $this->where('wisata.wisata_slug', $slug);
+        $data1 = $this->get()->getResultArray();
+
+        return $data1;
+    }
+
+    public function deleteWisata($slug)
+    {
+        return $this->db->table('wisata')->delete(['wisata_slug' => $slug]);
     }
 }
