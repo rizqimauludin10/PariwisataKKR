@@ -14,7 +14,7 @@
                 <ul class="navbar-nav ml-auto">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item"><a href="/" class="nav-link">Beranda</a></li>
-                        <li class="nav-item"><a href="f_destinasi.fh" class="nav-link">Destinasi</a></li>
+                        <li class="nav-item"><a href="f_destinasi.rh" class="nav-link">Destinasi</a></li>
                         <li class="nav-item"><a href="#" class="nav-link">Artikel</a></li>
                         <li class="nav-item active"><a href="f_event.fh" class="nav-link">Event</a></li>
                         <li class="nav-item"><a href="#" class="nav-link">Download</a></li>
@@ -86,7 +86,7 @@
                         <div class="blog-entry justify-content-end">
 
                             <a href="#" class="block-20" style="background-image: url(
-                               <?= base_url('img/' . $event_fe['event_poster']); ?>);">
+                                <?= base_url('img/event/' . $event_fe['event_poster']); ?>);">
                             </a>
 
                             <div class="text mt-3 float-right d-block">
@@ -111,7 +111,7 @@
                                 </div>
                                 <h3 class="heading"><a href="#"><?= $event_fe['event_name'] ?></a></h3>
 
-                                <p><?= character_limiter($event_fe['event_desc'], 70)  ?>
+                                <p><?= character_limiter($event_fe['event_desc'] , 70)?>
                                 </p>
                             </div>
                         </div>
@@ -122,19 +122,9 @@
 
 
             <!-- Pagging -->
-            <div class="row mt-5">
+            <div class="row">
                 <div class="col text-center">
-                    <div class="block-27">
-                        <ul>
-                            <li><a href="#">&lt;</a></li>
-                            <li class="active"><span>1</span></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">&gt;</a></li>
-                        </ul>
-                    </div>
+                    <?= $pager->links('f_event', 'f_event_pagination'); ?>
                 </div>
             </div>
         </div>

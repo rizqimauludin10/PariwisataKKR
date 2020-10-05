@@ -12,6 +12,22 @@
                 </div>
             </div>
 
+            <div class="container">
+                <div class="row mt-4">
+                    <div class="col-sm-6 float-right ">
+                        <form action="" method="POST">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Masukkan keyword pencarian.." name="keyword">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="submit" id="submit">Cari</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
             <div class="card-body">
                 <div class="row">
                     <div class="col-sm-12">
@@ -20,21 +36,23 @@
                         <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info">
                             <thead>
                                 <tr role="row">
-                                    <th class="sorting" tabindex="0" aria-controls="essay-table" rowspan="1" colspan="1" aria-sort="ascending"> Nama Wisata </th>
-                                    <th class="sorting" tabindex="0" aria-controls="essay-table" rowspan="1" colspan="1"> Kategori </th>
-                                    <th class="sorting" tabindex="0" aria-controls="essay-table" rowspan="1" colspan="1"> Alamat </th>
-                                    <th class="sorting" tabindex="0" aria-controls="essay-table" rowspan="1" colspan="1"> Kontak </th>
-                                    <th class="sorting" tabindex="0" aria-controls="essay-table" rowspan="1" colspan="1"> Fasilitas </th>
+                                    <th class="sorting" tabindex="0" aria-controls="essay-table" rowspan="1" colspan="1" aria-sort="ascending"> # </th>
+                                    <th aria-controls="essay-table" rowspan="1" colspan="1"> Nama Wisata </th>
+                                    <th aria-controls="essay-table" rowspan="1" colspan="1"> Kategori </th>
+                                    <th aria-controls="essay-table" rowspan="1" colspan="1"> Alamat </th>
+
+                                    <th aria-controls="essay-table" rowspan="1" colspan="1"> Fasilitas </th>
 
                                     <th class="sorting" tabindex="0" aria-controls="essay-table" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending"">Action</th>
                                 </tr>
                             </thead>
 
+                            <?php $a = 1 + (10 * ($currentPage - 1)); ?>
                             <?php foreach ($wisata as $row) : ?>
                                 <tbody>
-
-
-                                    <tr role=" row" class="odd">
+                                    <td>
+                                        <?= $a++ ?>
+                                    </td>
                                     <td>
                                         <?= $row['wisata_name'] ?>
                                     </td>
@@ -48,24 +66,20 @@
                                     </td>
 
                                     <td>
-                                        <?= $row['wisata_contact']; ?>
-                                    </td>
-
-                                    <td>
                                         <?= $row['wisata_facility']; ?>
                                     </td>
                                     <td>
 
                                         <form action="/wisata/detail/<?= $row['wisata_slug']; ?>" method="POST" style="display: inline-block;">
-                                            <button type="submit" class="btn btn-primary">
-                                                <i class="far fa-eye"></i></button>
+                                        <button type="submit" class="btn btn-primary">
+                                            <i class="far fa-eye"></i></button>
                                         </form>
 
                                         <form action="<?= base_url('wisata/deleteWisata/' . $row['wisata_slug']) ?>" method="POST" style="display: inline-block;">
                                             <button type="submit" class="btn btn-danger">
                                                 <i class="far fa-trash-alt"></i></button>
                                         </form>
-                                    </td>
+                                        </td>
 
                                 </tr>
                                 </tbody>
@@ -74,7 +88,16 @@
                         </table>
 
                     </div>
+
                 </div>
+
+                <div class="row mt-3 float-right">
+                    <div class="col-md-12">
+                        <?= $pager->links('wisata', 'wisata_pagination'); ?>
+                    </div>
+                </div>
+
+
             </div>
         </div>
     </div>

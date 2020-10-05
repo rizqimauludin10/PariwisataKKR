@@ -57,7 +57,7 @@
                                                     <i class="far fa-edit"></i></button>
                                             </form>
 
-                                            <form action="<?= base_url('event/deleteEvent/' . $row['id']) ?>" method="POST" style="display: inline-block;">
+                                            <form action="<?= base_url('event/deleteEvent/' . $row['event_slug']) ?>" method="POST" style="display: inline-block;">
                                                 <button type="submit" class="btn btn-danger">
                                                     <i class="far fa-trash-alt"></i></button>
                                             </form>
@@ -69,6 +69,12 @@
 
                         </table>
 
+                    </div>
+                </div>
+
+                <div class="row mt-3 float-right">
+                    <div class="col-md-12">
+                        <?= $pager->links('event', 'wisata_pagination'); ?>
                     </div>
                 </div>
             </div>

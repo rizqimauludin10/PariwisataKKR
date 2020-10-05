@@ -1,10 +1,11 @@
-<body>
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
         <div class="container">
-            <!-- <a class="navbar-brand" href="index.html">RISING<span>Kubu Raya</span></a> -->
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="/">
                 <div class="centering-demo">
-                    <img class="logo_dashboard" src="<?= base_url('../img/logo-default.png') ?>">
+                    <img class="logo_dashboard" src="<?= base_url('../img/logomenanjak_new.png') ?>">
+                    <img class="logo_dashboard" src="<?= base_url('../img/logorising_new.png') ?>">
+                    
+
                 </div>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,28 +14,26 @@
 
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active"><a href="dashboard.fh" class="nav-link">Beranda</a></li>
-                    <li class="nav-item"><a href="f_destinasi.fh" class="nav-link">Destinasi</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Artikel</a></li>
-                    <li class="nav-item"><a href="f_event.fh" class="nav-link">Event</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Download</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">About</a></li>
-                    <li class="nav-item cta"><a href="#" class="nav-link">Peta Wisata</a></li>
+                    <li class="nav-item active"><a href="/" class="nav-link">Beranda</a></li>
+                    <li class="nav-item"><a href="f_destinasi.rm" class="nav-link">Destinasi</a></li>
+                    <li class="nav-item"><a href="f_event.rm" class="nav-link">Event</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Profil</a></li>
+                    <li class="nav-item cta"><a href="f_peta_wisata.rm" class="nav-link">Peta Wisata</a></li>
                 </ul>
             </div>
         </div>
     </nav>
     <!-- END nav -->
 
-    <div class="hero-wrap js-fullheight" style="background-image: url('../assets/assets_fe/images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+    <div class="hero-wrap js-fullheight" style="background-image: url('<?= base_url('../img/bg1.jpg') ?>');" data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
                 <div class="col-md-9 text text-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-                    <a href="https://vimeo.com/45830194" class="icon-video popup-vimeo d-flex align-items-center justify-content-center mb-4">
+                    <a href="https://www.youtube.com/watch?v=aKUAka_EngI" class="icon-video popup-youtube d-flex align-items-center justify-content-center mb-4">
                         <span class="ion-ios-play"></span>
                     </a>
-                    <p class="caps" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Travel to the any corner of the world, without going around in circles</p>
+                    <p class="caps" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Selamat Datang di Website Resmi Pariwisata Kubu Raya</p>
                     <h1 data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Make Your Tour Amazing With Us</h1>
                 </div>
             </div>
@@ -534,11 +533,6 @@
 
 
 
-</body>
-
-</html>
-
-
 <style>
     .centering-demo {
         display: flex;
@@ -547,6 +541,6 @@
     }
 
     .logo_dashboard {
-        max-block-size: 5em;
+        max-block-size: 2em;
     }
 </style>

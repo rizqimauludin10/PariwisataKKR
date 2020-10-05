@@ -15,7 +15,7 @@
 
 
                             <div class="form-group">
-                                <label for="posterUpload">Nama Destinasi</label>
+                                <label for="name">Nama Destinasi</label>
                                 <input type="text" class="form-control form-control-user" id="destinasiName" name="destinasiName" placeholder="Nama Destinasi" value="">
                             </div>
 
@@ -34,9 +34,10 @@
                             <label for="posterUpload">Deskripsi Destinasi</label>
                             <textarea name="destinasiDesc" id="ckeditor" required></textarea>
 
-                            <label for="posterUpload">Alamat Destinasi</label>
-                            <textarea name="destinasiAddress" id="ckeditor2" required></textarea>
-
+                            <div class="form-group mt-4">
+                                <label for="address">Alamat Destinasi</label>
+                                <input type="text" class="form-control form-control-user" id="destinasiAddress" name="destinasiAddress" placeholder="Nama Destinasi" value="">
+                            </div>
 
                             <div class="form-group" style="margin-top: 20px;">
                                 <label for="posterUpload">Waktu Operasional</label>
@@ -59,8 +60,24 @@
 
                             <div class="form-group mt-4">
                                 <label for="mapsLabel">Peta Lokasi</label>
+                                <div id="mapid" style="width: 100%; height: 400px;"></div>
                             </div>
-                            <div id="map"></div>
+
+                            <div class="col-md-12">
+                                <div class="col-md-5" style="display: inline-block;">
+                                    <div class="form-group mt-2">
+                                        <label for="posterUpload">Lattitude</label>
+                                        <input type="text" class="form-control form-control-user" id="lat" name="lat" placeholder="Lattitude" value="">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-5" style="display: inline-block;">
+                                    <div class="form-group mt-2">
+                                        <label for="posterUpload">Langitude</label>
+                                        <input type="text" class="form-control form-control-user" id="lang" name="lang" placeholder="Langitude" value="">
+                                    </div>
+                                </div>
+                            </div>
 
                             <div class="form-group mt-4">
                                 <label for="posterUpload">Destinasi Poster</label>
@@ -76,30 +93,6 @@
                             </div>
 
                             <hr>
-
-                            <!-- <div class="form-group" style="margin-top: 20px;">
-                                <label for="posterUpload">Keterangan Foto</label>
-                                <input type="text" class="form-control form-control-user" id="galleri_name" name="galleri_name[]" placeholder="Keterangan Foto" value="" style="width: 20%;">
-                            </div>
-
-                            <label for="posterUpload">Deskripsi Foto</label>
-                            <textarea name="galleri_desc[]" id="ckeditor4" required></textarea> -->
-
-                            <!-- Multiple Image Upload  -->
-                            <!-- <div class="form-group mt-4 addImage">
-                                <label for="galleriWisataUpload">Foto Gallery</label>
-                                <div class="col-md-12">
-                                    <div class="col-md-3 mb-3" style="display: inline-block;">
-                                        <img src="/img/defaultimage.png" class="img-thumbnail img-preview2" id="img-preview2">
-                                    </div>
-                                    <div class="custom-file col-md-2">
-                                        <input type="file" class="custom-file-input" id="galleriFile" name="galleriFile[]" multiple onchange="previewImgGallery()">
-                                        <label class="custom-file-label lb2" for="fotoGalleryLabel">Pilih Gambar</label>
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn btn-success">Tambah Foto</button>
-                            </div> -->
-
 
                             <div class="form-group" style="margin-top: 20px;">
                                 <label for="posterUpload">Upload Gallery Foto Destinasi </label>
@@ -129,44 +122,6 @@
 <script src="<?= base_url(''); ?>/assets/jquery.js"></script>
 <script src="<?= base_url(''); ?>/assets/bootstrap/bootstrap.bundle.js"></script>
 <script src="<?= base_url(''); ?>/assets/ckeditor/ckeditor.js"></script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLVUltI28Rc8tpWWBc0P3qdTWciWRmNn8&callback=initMap"></script>
-<!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script> -->
-
-<style>
-    .inputfile {
-        width: 0.1px;
-        height: 0.1px;
-        opacity: 0;
-        overflow: hidden;
-        position: absolute;
-        z-index: -1;
-    }
-
-    .inputfile+label {
-        font-size: 1.25em;
-        font-weight: 700;
-        color: white;
-        cursor: pointer;
-        background-color: black;
-        display: inline-block;
-    }
-
-    .inputfile:focus+label {
-        outline: 1px dotted #000;
-        outline: -webkit-focus-ring-color auto 5px;
-    }
-
-    .inputfile+label * {
-        pointer-events: none;
-    }
-
-    .inputfile:focus+label,
-    .inputfile+label:hover {
-        background-color: red;
-    }
-</style>
-
 
 <script>
     $(function() {
@@ -176,18 +131,14 @@
             filebrowserImageBrowseUrl: '<?= base_url('assets/kcfinder/browse.php'); ?>',
             height: '100px'
         });
-        CKEDITOR.replace('ckeditor2', {
-            filebrowserImageBrowseUrl: '<?= base_url('assets/kcfinder/browse.php'); ?>',
-            height: '100px'
-        });
         CKEDITOR.replace('ckeditor3', {
             filebrowserImageBrowseUrl: '<?= base_url('assets/kcfinder/browse.php'); ?>',
             height: '100px'
         });
-        CKEDITOR.replace('ckeditor4', {
-            filebrowserImageBrowseUrl: '<?= base_url('assets/kcfinder/browse.php'); ?>',
-            height: '100px'
-        });
+        // CKEDITOR.replace('ckeditor4', {
+        //     filebrowserImageBrowseUrl: '<?= base_url('assets/kcfinder/browse.php'); ?>',
+        //     height: '100px'
+        // });
     });
 
     function previewImg() {
@@ -222,37 +173,39 @@
     }
 
 
-
-    let map;
-
-    function initMap() {
-        map = new google.maps.Map(document.getElementById("map"), {
-            center: {
-                lat: 51.506821,
-                lng: -0.0879
-            },
-            zoom: 10,
-            scaleControl: true,
-            map: map,
-            title: 'The London Bridge',
-
-        });
+    var curLocation = [0, 0];
+    if (curLocation[0] == 0 && curLocation[1] == 0) {
+        curLocation = [-0.126644, 109.403667];
     }
 
-    //get the input and UL list
-    var input = document.getElementById('filesToUpload');
-    var list = document.getElementById('fileList');
+    var mymap = L.map('mapid').setView([-0.126644, 109.403667], 15);
 
-    //empty list for now...
-    while (list.hasChildNodes()) {
-        list.removeChild(ul.firstChild);
-    }
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+        id: 'mapbox/streets-v11',
+    }).addTo(mymap);
 
-    //for every file...
-    for (var x = 0; x < input.files.length; x++) {
-        //add to list
-        var li = document.createElement('li');
-        li.innerHTML = 'File ' + (x + 1) + ':  ' + input.files[x].name;
-        list.append(li);
-    }
+    mymap.attributionControl.setPrefix(false);
+    // L.marker([-0.126644, 109.403667]).addTo(map);
+    var marker = new L.marker(curLocation, {
+        draggable: 'true'
+    });
+
+    marker.on('dragend', function(event) {
+        var position = marker.getLatLng();
+        marker.setLatLng(position, {
+            draggable: 'true'
+        }).bindPopup(position).update();
+        $("#lat").val(position.lat);
+        $("#lang").val(position.lng).keyup();
+    });
+
+    $("#lat, #lang").change(function() {
+        var position = [parseInt($("#lat").val()), parseInt($("#lang").val())];
+        marker.setLatLng(position, {
+            draggable: 'true'
+        }).bindPopup(position).update();
+        mymap.panTo(position);
+    });
+
+    mymap.addLayer(marker);
 </script>

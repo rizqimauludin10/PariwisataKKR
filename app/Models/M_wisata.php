@@ -16,10 +16,21 @@ class M_wisata extends Model
 
     public function getWisataAll()
     {
-
         return $this->db->table('wisata')
-            ->join('kategori', 'kategori.id=wisata.id_kategori')
             ->get()->getResultArray();
+
+        d($this->db->table('wisata')
+            // ->join('kategori', 'kategori.id=wisata.id_kategori', 'left')
+            ->orderBy('id', 'DESC')
+            ->get()->getResultArray());
+    }
+
+    public function search($keyword)
+    {
+        return $this->table('wisata')
+            // ->join('kategori', 'kategori.id=wisata.id_kategori')
+            ->like('wisata_name', $keyword)
+            ->orLike('nama_kategori', $keyword);
     }
 
 

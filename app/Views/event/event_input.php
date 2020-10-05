@@ -41,6 +41,28 @@
                                 <input type="date" class="form-control form-control-user" id="eventDate" name="eventDate" placeholder="Event Date" value="" style="width: 20%;">
                             </div>
 
+                            <div class="form-group mt-4">
+                                <label for="mapsLabel">Lokasi Event</label>
+                                <div id="mapid" style="width: 100%; height: 250px;"></div>
+                            </div>
+
+
+                            <div class="col-md-12">
+                                <div class="col-md-5" style="display: inline-block;">
+                                    <div class="form-group mt-2">
+                                        <label for="posterUpload">Lattitude</label>
+                                        <input type="text" class="form-control form-control-user" id="lat" name="lat" placeholder="Lattitude" value="">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-5" style="display: inline-block;">
+                                    <div class="form-group mt-2">
+                                        <label for="posterUpload">Langitude</label>
+                                        <input type="text" class="form-control form-control-user" id="lang" name="lang" placeholder="Langitude" value="">
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="form-group">
                                 <label for="posterUpload">Event Poster</label>
                                 <div class="col-md-12">
@@ -105,4 +127,42 @@
         }
 
     }
+
+
+
+    var curLocation = [0, 0];
+    if (curLocation[0] == 0 && curLocation[1] == 0) {
+        curLocation = [-0.126644, 109.403667];
+    }
+
+    var mymap = L.map('mapid').setView([-0.126644, 109.403667], 15);
+
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+        id: 'mapbox/streets-v11',
+    }).addTo(mymap);
+
+    mymap.attributionControl.setPrefix(false);
+    // L.marker([-0.126644, 109.403667]).addTo(map);
+    var marker = new L.marker(curLocation, {
+        draggable: 'true'
+    });
+
+    marker.on('dragend', function(event) {
+        var position = marker.getLatLng();
+        marker.setLatLng(position, {
+            draggable: 'true'
+        }).bindPopup(position).update();
+        $("#lat").val(position.lat);
+        $("#lang").val(position.lng).keyup();
+    });
+
+    $("#lat, #lang").change(function() {
+        var position = [parseInt($("#lat").val()), parseInt($("#lang").val())];
+        marker.setLatLng(position, {
+            draggable: 'true'
+        }).bindPopup(position).update();
+        mymap.panTo(position);
+    });
+
+    mymap.addLayer(marker);
 </script>

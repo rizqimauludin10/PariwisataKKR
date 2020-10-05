@@ -7,15 +7,43 @@ use App\Models\M_kategori;
 
 class Event extends BaseController
 {
+    protected $eventModel;
+    protected $kategoriModel;
+    public function __construct()
+    {
+        $this->eventModel = new M_event();
+        $this->kategoriModel = new M_kategori();
+    }
+
     public function index()
     {
+        $pager = \Config\Services::pager();
+
+        $currentPage = $this->request->getVar('page_event') ? $this->request->getVar('page_event') : 1;
+
+        $keyword = $this->request->getVar('keyword');
+        if ($keyword) {
+            $wisata = $this->eventModel->search($keyword);
+        } else {
+            $wisata = $this->eventModel->getEventAll();
+        }
+
         echo view('admin/_partials/partial_header');
         echo view('admin/_partials/partial_sidebar');
         echo view('admin/_partials/partial_topbar');
 
         $model = new M_event();
 
-        $data['event'] = $model->getEvent();
+        $data  = [
+            'title' => 'Daftar Event ',
+            'event' => $this->eventModel
+                ->join('kategori', 'kategori.id=event.id_kategori', 'left')
+                ->orderBy('event.id', 'DESC')
+                ->paginate(10, 'event'),
+            'pager' => $this->eventModel->pager,
+            'currentPage' => $currentPage
+
+        ];
 
         echo view('event/index', $data);
 
@@ -69,6 +97,9 @@ class Event extends BaseController
     public function eventSave()
     {
 
+        $db = db_connect('default');
+        $builder = $db->table('event');
+
         $filePoster = $this->request->getFile('eventPoster');
         if ($filePoster->getError() == 4) {
             $namePosterFile = 'defaultimage.png';
@@ -78,18 +109,23 @@ class Event extends BaseController
         }
 
         $model = new M_event();
+        $slug = url_title($this->request->getVar('eventName'), '-', true);
 
         $data = [
             'id_user' => $this->request->getVar('idUser'),
             'id_kategori' => $this->request->getVar('idKategori'),
             'event_name' => $this->request->getVar('eventName'),
+            'event_slug' => $slug,
             'event_desc' => $this->request->getVar('eventDesc'),
             'event_date' => $this->request->getVar('eventDate'),
+            'event_lat' => $this->request->getVar('lat'),
+            'event_lng' => $this->request->getVar('lang'),
             'event_poster' => $namePosterFile
 
         ];
 
         $model->insert($data);
+        // $last_id = $db->insertID();
 
         return redirect()->to(base_url('event'));
     }
@@ -118,23 +154,13 @@ class Event extends BaseController
     public function eventUpdatePublish()
     {
         $model = new M_event();
-
-        $id = $this->request->getPost('idProfile');
-        $data = array(
-
-            'id_user' => $this->request->getPost('idUser'),
-            'profile_title' => $this->request->getPost('profileTitle'),
-            'profile_desc' => $this->request->getPost('profileDesc'),
-        );
-
-        $model->updateProfile($data, $id);
         return redirect()->to(base_url('event'));
     }
 
-    public function deleteEvent($id)
+    public function deleteEvent($slug)
     {
         $model = new M_event();
-        $model->deleteEvent($id);
+        $model->deleteEvent($slug);
         return redirect()->to(base_url('event'));
     }
 }

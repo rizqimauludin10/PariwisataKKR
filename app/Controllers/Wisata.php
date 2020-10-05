@@ -17,15 +17,36 @@ class Wisata extends BaseController
     }
     public function index()
     {
+        $pager = \Config\Services::pager();
+
         echo view('admin/_partials/partial_header');
         echo view('admin/_partials/partial_sidebar');
         echo view('admin/_partials/partial_topbar');
 
-        $model = new M_wisata();
-        $data['wisata'] = $model->getWisataAll();
+        $currentPage = $this->request->getVar('page_wisata') ? $this->request->getVar('page_wisata') : 1;
+
+        $keyword = $this->request->getVar('keyword');
+        if ($keyword) {
+            $wisata = $this->wisataModel->search($keyword);
+        } else {
+            $wisata = $this->wisataModel->getWisataAll();
+        }
+
+        $data  = [
+            'title' => 'Daftar Destinasi Wisata',
+            'wisata' => $this->wisataModel
+                ->join('kategori', 'kategori.id=wisata.id_kategori', 'left')
+                ->orderBy('wisata.id', 'DESC')
+                ->paginate(10, 'wisata'),
+            'pager' => $this->wisataModel->pager,
+            'currentPage' => $currentPage
+
+        ];
+
         echo view('wisata/index', $data);
 
         echo view('admin/_partials/partial_footer');
+        // d($data);
     }
 
 
@@ -80,6 +101,8 @@ class Wisata extends BaseController
             'wisata_cost' => $this->request->getVar('destinasiCost'),
             'wisata_contact' => $this->request->getVar('destinasiContact'),
             'wisata_facility' => $this->request->getVar('destinasiFacility'),
+            'wisata_lat' => $this->request->getVar('lat'),
+            'wisata_lng' => $this->request->getVar('lang'),
             'wisata_poster' => $namePosterFile
 
         ];
@@ -123,6 +146,8 @@ class Wisata extends BaseController
             'wisata' => $this->wisataModel->getWisata($slug),
             'gallery' => $this->wisataModel->getWisataGallery($slug)
         ];
+
+        return $data;
     }
 
     public function detail($slug)

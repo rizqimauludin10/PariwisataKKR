@@ -26,4 +26,10 @@
     <link rel="stylesheet" href="<?= base_url(''); ?>/assets/assets_fe/css/flaticon.css">
     <link rel="stylesheet" href="<?= base_url(''); ?>/assets/assets_fe/css/icomoon.css">
     <link rel="stylesheet" href="<?= base_url(''); ?>/assets/assets_fe/css/style.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" integrity="sha512-Velp0ebMKjcd9RiCoaHhLXkR1sFoCCWXNp6w4zj1hfMifYB5441C+sKeBl/T/Ka6NjBiRfBBQRaQq65ekYz3UQ==" crossorigin="anonymous" />
+
 </head>

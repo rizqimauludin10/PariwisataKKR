@@ -1,4 +1,3 @@
-<body>
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
         <div class="container">
             <a class="navbar-brand" href="index.html">RISING<span>Kubu Raya</span></a>
@@ -15,7 +14,20 @@
                     <li class="nav-item active"><a href="<?= base_url('f_destinasi/') ?>" class="nav-link">Destinasi</a></li>
                     <li class="nav-item"><a href="about.html" class="nav-link">Artikel</a></li>
                     <li class="nav-item"><a href="<?= base_url('f_event/') ?>" class="nav-link">Event</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Download</a></li>
+
+                    <li class="nav-item .dropdown-menu">
+                        <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Link Terkait</a>
+                        <!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Dropdown
+                        </a> -->
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </li>
+
                     <li class="nav-item"><a href="#" class="nav-link">About</a></li>
                     <li class="nav-item cta"><a href="#" class="nav-link">Peta Wisata</a></li>
                 </ul>
@@ -23,21 +35,19 @@
         </div>
     </nav>
 
-    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url(
-                               <?= base_url('img/wisata/' . $wisata['wisata_poster']); ?>);" data-stellar-background-ratio="0.5">
+    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url(<?= base_url('img/wisata/' .      $wisata['wisata_poster']); ?>);" data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
                 <div class="col-md-9 ftco-animate pb-5 text-center">
                     <h1 class="mb-3 bread"><?= $wisata['wisata_name']; ?></h1>
-
-                </div>
+            </div>
             </div>
         </div>
     </section>
 
     <div class="container-fluid">
-        <div class="col-lg-9 mt-4 mb-4" style="display: inline-block;">
+        <div class="col-lg-12 mt-4 mb-5" style="display: inline-block;">
             <div class="accordion" id="accordionExample">
                 <div class="card">
                     <div class="card-header" id="headingOne">
@@ -47,43 +57,41 @@
                             </b>
                         </h6>
                     </div>
-
-                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                         <div class="card-body">
                             <table class="w-full">
                                 <tbody>
                                     <tr>
-                                        <td class="align-top py-2 pr-2 whitespace-no-wrap">Nama Tempat</td>
+                                        <td class="align-top py-2 pr-4 whitespace-no-wrap">Nama Tempat</td>
                                         <td class="align-top py-2 whitespace-no-wrap">
                                             <b><?= $wisata['wisata_name']; ?></b>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="align-top py-2 pr-2 whitespace-no-wrap">Kategori</td>
-                                        <td class="align-top py-2 whitespace-no-wrap">-</td>
+                                        <td class="align-top py-2 pr-4 whitespace-no-wrap">Kategori</td>
+                                        <td class="align-top py-2 whitespace-no-wrap"><?= $wisata['nama_kategori']; ?></td>
                                     </tr>
 
                                     <tr>
-                                        <td class="align-top py-2 pr-2 whitespace-no-wrap">Alamat</td>
+                                        <td class="align-top py-2 pr-4 whitespace-no-wrap">Alamat</td>
                                         <td class="align-top py-2 whitespace-no-wrap"><?= $wisata['wisata_address']; ?></td>
                                     </tr>
                                     <tr>
-                                        <td class="align-top py-2 pr-2 whitespace-no-wrap">Kontak</td>
+                                        <td class="align-top py-2 pr-4 whitespace-no-wrap">Kontak</td>
                                         <td class="align-top py-2 whitespace-no-wrap"><?= $wisata['wisata_contact']; ?></td>
                                     </tr>
                                     <tr>
-                                        <td class="align-top py-2 pr-2 whitespace-no-wrap">Jam Operasional</td>
+                                        <td class="align-top py-2 pr-4 whitespace-no-wrap">Operasional</td>
                                         <td class="align-top py-2 whitespace-no-wrap"><?= $wisata['wisata_operational']; ?></td>
                                     </tr>
                                     <tr>
-                                        <td class="align-top py-2 pr-2 whitespace-no-wrap">Fasilitas</td>
+                                        <td class="align-top py-2 pr-4 whitespace-no-wrap">Fasilitas</td>
                                         <td class="align-top py-2 whitespace-no-wrap">
                                             <?= $wisata['wisata_facility']; ?> <br>
                                         </td>
                                     </tr>
 
                                     <tr>
-                                        <td class="align-top py-2 pr-2 whitespace-no-wrap">Biaya</td>
+                                        <td class="align-top py-2 pr-4 whitespace-no-wrap">Biaya</td>
                                         <td class="align-top py-2 whitespace-no-wrap">
                                             <?= $wisata['wisata_cost']; ?> <br>
                                         </td>
@@ -92,7 +100,6 @@
 
                             </table>
                         </div>
-                    </div>
                 </div>
                 <div class="card">
                     <div class="card-header" id="headingTwo">
@@ -111,45 +118,60 @@
                     </div>
                 </div>
 
+                <!-- LightBoxImage -->
+                <div class="card">
+                            <div class="row justify-content-center">
+                                    <div class="row p-4">
+                                        <div class="col-md-12">
+                                        <h6 class="mb-4">
+                                            <b>
+                                                Galleri Destinasi Wisata <?= $wisata['wisata_name']; ?>
+                                            </b>
+                                        </h6>
+                                        </div>
+                                    <?php foreach ($gallery as $row) : ?>
+                                        <div class="col-lg-2 col-md-4 col-xs-6 mb-2">
+                                            <a href="/img/wisata/gallerywisata/<?= $row['gallery_file'] ?>" data-toggle="lightbox" data-gallery="gallery" class="col-md-4">
+                                                <img src="/img/wisata/gallerywisata/<?= $row['gallery_file'] ?>" class="img-fluid rounded">
+                                            </a>
+                                        </div>
+                                    <?php endforeach; ?>
+                                    </div>
+                        </div>
+                </div>
+
+                <div class="card">
+                        <div class="row justify-content-center" style="position:sticky;">
+                            <div id="mapid" style="width: 100%; height: 300px;"></div>
+                        </div>
+                </div>
+
             </div>
         </div>
 
-        <div class="col-lg-3 mt-4 mb-4" style="display: inline-block; position: absolute;">
-            <div class="card">
-                <a href="#">
-                    <div class="card-body p-3">
-                        <svg width="2em" height="1em" viewBox="0 0 16 16" class="bi bi-geo-alt" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M12.166 8.94C12.696 7.867 13 6.862 13 6A5 5 0 0 0 3 6c0 .862.305 1.867.834 2.94.524 1.062 1.234 2.12 1.96 3.07A31.481 31.481 0 0 0 8 14.58l.208-.22a31.493 31.493 0 0 0 1.998-2.35c.726-.95 1.436-2.008 1.96-3.07zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z" />
-                            <path fill-rule="evenodd" d="M8 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
-                        </svg>
-                        <span class="text">Lokasi</span>
-
-                    </div>
-                </a>
-            </div>
-
-            <div class="card mt-3">
-                <a href="#">
-                    <div class="card-body p-3">
-                        <svg width="2em" height="1em" viewBox="0 0 16 16" class="bi bi-images" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M12.002 4h-10a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1zm-10-1a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-10zm4 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
-                            <path fill-rule="evenodd" d="M4 2h10a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1v1a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2h1a1 1 0 0 1 1-1z" />
-                        </svg>
-                        <span class="text">Lihat Gallery</span>
-                    </div>
-                </a>
-            </div>
-
-            <div class="card mt-3">
-                <a href="#">
-                    <div class="card-body p-3">
-                        <svg width="2em" height="1em" viewBox="0 0 16 16" class="bi bi-film" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M0 1a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V1zm4 0h8v6H4V1zm8 8H4v6h8V9zM1 1h2v2H1V1zm2 3H1v2h2V4zM1 7h2v2H1V7zm2 3H1v2h2v-2zm-2 3h2v2H1v-2zM15 1h-2v2h2V1zm-2 3h2v2h-2V4zm2 3h-2v2h2V7zm-2 3h2v2h-2v-2zm2 3h-2v2h2v-2z" />
-                        </svg>
-                        <span class="text">Lihat Video</span>
-                    </div>
-                </a>
-            </div>
-        </div>
+  
     </div>
-</body>
+
+    
+    <script>
+        var mymap = L.map('mapid').setView([-0.126644, 109.403667], 10);
+
+        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+            id: 'mapbox/streets-v11',
+        }).addTo(mymap);
+
+        
+
+        var myIcon = L.icon({
+        iconUrl: '<?= base_url('../img/locIcon.png') ?>', 
+        iconSize: [50, 50],
+        // iconAnchor: [22, 94],
+        // popupAnchor: [-3, -76],
+        // shadowUrl: '../assets/assets_fe/images/loc.png',
+        // shadowSize: [68, 95],
+        // shadowAnchor: [22, 94]
+        });
+
+            L.marker([<?= $wisata['wisata_lat'] ?>, <?= $wisata['wisata_lng'] ?>], {icon:myIcon}).addTo(mymap).bindPopup("<b><?= $wisata['wisata_name'] ?><b><br/><br/>"+
+        "<img src='<?= base_url('img/wisata/'.$wisata['wisata_poster']) ?>' width='200px' height='130px'><br/>");
+    </script>

@@ -8,7 +8,7 @@ class M_event extends Model
 {
     protected $table = 'event';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['id_user', 'id_kategori', 'event_poster', 'event_name', 'event_desc', 'event_date', 'updated_at'];
+    protected $allowedFields = ['id_user', 'id_kategori', 'event_poster','event_slug', 'event_name', 'event_desc', 'event_date', 'event_lat', 'event_lng', 'updated_at'];
     protected $useTimestamps = true;
     protected $createdField  = 'created_at';
 
@@ -28,13 +28,18 @@ class M_event extends Model
         return $query;
     }
 
-    public function deleteEvent($id)
+    public function deleteEvent($slug)
     {
-        $query = $this->db->table('event')->delete(array('id' => $id));
-        return $query;
+        return $this->db->table('event')->delete(['event_slug' => $slug]);
     }
-    // public function insertEvent($data)
-    // {
-    //     return $this->db->table('event')->insert($data);
-    // }
+
+
+    public function getEventAll(){
+        return $this->db->table('wisata')
+            ->get()->getResultArray();
+
+        // d($this->db->table('wisata')
+        //     ->orderBy('id', 'DESC')
+        //     ->get()->getResultArray());
+    }
 }

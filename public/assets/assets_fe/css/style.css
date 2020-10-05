@@ -10806,6 +10806,14 @@ h5,
   line-height: 1.2;
   font-weight: 300;
 }
+
+.slider-text h3 {
+  font-size: 30px;
+  color: #fff;
+  line-height: 1.2;
+  font-weight: 300;
+}
+
 @media (max-width: 991.98px) {
   .slider-text h1 {
     font-size: 40px;
@@ -11846,7 +11854,7 @@ textarea.form-control {
 .blog-entry .text .heading a:hover,
 .blog-entry .text .heading a:focus,
 .blog-entry .text .heading a:active {
-  color: #f9ab30;
+  color: #2747bb;
 }
 .blog-entry .meta > div {
   display: inline-block;
