@@ -36,6 +36,12 @@
                             <label for="posterUpload">Event Description</label>
                             <textarea name="eventDesc" id="ckeditor" required></textarea>
 
+                            <div class="form-group mt-4">
+                                <label for="eventAddress">Event Address</label>
+                                <textarea name="eventAddress" id="ckeditor2" required></textarea>
+                            </div>
+
+
                             <div class="form-group" style="margin-top: 20px;">
                                 <label for="posterUpload">Event Date </label>
                                 <input type="date" class="form-control form-control-user" id="eventDate" name="eventDate" placeholder="Event Date" value="" style="width: 20%;">
@@ -74,6 +80,12 @@
                                         <label class="custom-file-label" for="inputGroupFile01">Pilih Gambar</label>
                                     </div>
                                 </div>
+                            </div>
+
+                            <div class="form-group" style="margin-top: 20px;">
+                                <label for="eventUpload">Upload Gallery Foto Event </label>
+                                <input class="form-control" name="eventUpload[]" id="eventUpload" type="file" multiple="true" />
+                            </div>
 
                                 <hr>
 
@@ -109,6 +121,11 @@
         CKEDITOR.replace('ckeditor', {
             filebrowserImageBrowseUrl: '<?= base_url('assets/kcfinder/browse.php'); ?>',
             height: '150px'
+        });
+
+        CKEDITOR.replace('ckeditor2', {
+            filebrowserImageBrowseUrl: '<?= base_url('assets/kcfinder/browse.php'); ?>',
+            height: '100px'
         });
     });
 

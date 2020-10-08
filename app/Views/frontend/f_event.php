@@ -14,9 +14,9 @@
                 <ul class="navbar-nav ml-auto">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item"><a href="/" class="nav-link">Beranda</a></li>
-                        <li class="nav-item"><a href="f_destinasi.rh" class="nav-link">Destinasi</a></li>
+                        <li class="nav-item"><a href="f_destinasi.rm" class="nav-link">Destinasi</a></li>
                         <li class="nav-item"><a href="#" class="nav-link">Artikel</a></li>
-                        <li class="nav-item active"><a href="f_event.fh" class="nav-link">Event</a></li>
+                        <li class="nav-item active"><a href="f_event.rm" class="nav-link">Event</a></li>
                         <li class="nav-item"><a href="#" class="nav-link">Download</a></li>
                         <li class="nav-item"><a href="#" class="nav-link">About</a></li>
                         <li class="nav-item cta"><a href="#" class="nav-link">Peta Wisata</a></li>
@@ -25,12 +25,12 @@
             </div>
         </div>
     </nav>
-    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('../assets/assets_fe/images/bg_1.jpg');" data-stellar-background-ratio="0.5">
-        <div class="overlay"></div>
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('../assets/assets_fe/images/bg_1.jpg'); height:500px;" data-stellar-background-ratio="0.5">
+        <div class="overlay" style="height:500px;"></div>
         <div class="container">
-            <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
+            <div class="row no-gutters slider-text align-items-end justify-content-center" style="height:450px;">
                 <div class="col-md-9 ftco-animate pb-5 text-center">
-                    <h1 class="mb-3 bread">Event Wisata Kubu Raya</h1>
+                    <h2 class="mb-3 bread">Event Wisata Kubu Raya</h2>
                     <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home
                                 <i class="ion-ios-arrow-forward"></i></a></span> <span>Event
                             <i class="ion-ios-arrow-forward"></i></span></p>
@@ -85,8 +85,7 @@
                     <div class="col-md-4 d-flex ftco-animate">
                         <div class="blog-entry justify-content-end">
 
-                            <a href="#" class="block-20" style="background-image: url(
-                                <?= base_url('img/event/' . $event_fe['event_poster']); ?>);">
+                            <a href="/f_event/detail/<?= $event_fe['event_slug']; ?>" class="block-20" style="background-image: url(<?= base_url('img/event/' . $event_fe['event_poster']); ?>);">
                             </a>
 
                             <div class="text mt-3 float-right d-block">
@@ -109,7 +108,7 @@
 
 
                                 </div>
-                                <h3 class="heading"><a href="#"><?= $event_fe['event_name'] ?></a></h3>
+                                <h3 class="heading"><a href="/f_event/detail/<?= $event_fe['event_slug']; ?>"><?= $event_fe['event_name'] ?></a></h3>
 
                                 <p><?= character_limiter($event_fe['event_desc'] , 70)?>
                                 </p>

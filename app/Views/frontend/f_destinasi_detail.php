@@ -46,6 +46,7 @@
         </div>
     </section>
 
+
     <div class="container-fluid">
         <div class="col-lg-12 mt-4 mb-5" style="display: inline-block;">
             <div class="accordion" id="accordionExample">
@@ -120,23 +121,23 @@
 
                 <!-- LightBoxImage -->
                 <div class="card">
-                            <div class="row justify-content-center">
-                                    <div class="row p-4">
-                                        <div class="col-md-12">
-                                        <h6 class="mb-4">
-                                            <b>
-                                                Galleri Destinasi Wisata <?= $wisata['wisata_name']; ?>
-                                            </b>
-                                        </h6>
-                                        </div>
-                                    <?php foreach ($gallery as $row) : ?>
-                                        <div class="col-lg-2 col-md-4 col-xs-6 mb-2">
-                                            <a href="/img/wisata/gallerywisata/<?= $row['gallery_file'] ?>" data-toggle="lightbox" data-gallery="gallery" class="col-md-4">
-                                                <img src="/img/wisata/gallerywisata/<?= $row['gallery_file'] ?>" class="img-fluid rounded">
-                                            </a>
-                                        </div>
-                                    <?php endforeach; ?>
+                    <div class="row justify-content-center">
+                        <div class="row p-4">
+                                 <div class="col-md-12">
+                                    <h6 class="mb-4">
+                                        <b>
+                                            Galleri Destinasi Wisata <?= $wisata['wisata_name']; ?>
+                                         </b>
+                                    </h6>
+                                </div>
+                                <?php foreach ($gallery as $row) : ?>
+                                    <div class="col-lg-2 col-md-4 col-xs-6 mb-2">
+                                        <a href="/img/wisata/gallerywisata/<?= $row['gallery_file'] ?>" data-toggle="lightbox" data-gallery="gallery" class="col-md-4">
+                                            <img src="/img/wisata/gallerywisata/<?= $row['gallery_file'] ?>" class="img-fluid rounded">
+                                        </a>
                                     </div>
+                                <?php endforeach; ?>
+                                </div>
                         </div>
                 </div>
 
@@ -154,7 +155,7 @@
 
     
     <script>
-        var mymap = L.map('mapid').setView([-0.126644, 109.403667], 10);
+        var mymap = L.map('mapid').setView([<?= $wisata['wisata_lat'] ?>, <?= $wisata['wisata_lng'] ?>], 15);
 
         L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
             id: 'mapbox/streets-v11',

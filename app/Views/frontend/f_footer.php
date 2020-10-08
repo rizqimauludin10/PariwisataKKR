@@ -3,8 +3,8 @@
         <div class="row mb-5">
             <div class="col-md">
                 <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2">Vacation</h2>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <h2 class="ftco-heading-2">Kantor</h2>
+                    <p>Dinas Kepemudaan, Olahraga dan Pariwisata Kabupaten Kubu Raya</p>
                     <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                         <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
                         <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
@@ -16,36 +16,34 @@
                 <div class="ftco-footer-widget mb-4 ml-md-5">
                     <h2 class="ftco-heading-2">Infromation</h2>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="py-2 d-block">Online Enquiry</a></li>
-                        <li><a href="#" class="py-2 d-block">General Enquiries</a></li>
-                        <li><a href="#" class="py-2 d-block">Booking Conditions</a></li>
-                        <li><a href="#" class="py-2 d-block">Privacy and Policy</a></li>
-                        <li><a href="#" class="py-2 d-block">Refund Policy</a></li>
-                        <li><a href="#" class="py-2 d-block">Call Us</a></li>
+                        <li><a href="#" class="py-2 d-block">Beranda</a></li>
+                        <li><a href="#" class="py-2 d-block">Destinasi</a></li>
+                        <li><a href="#" class="py-2 d-block">Artikel</a></li>
+                        <li><a href="#" class="py-2 d-block">Event</a></li>
+                        <li><a href="#" class="py-2 d-block">Profil</a></li>
+                        <li><a href="#" class="py-2 d-block">Peta Wisata</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-md">
                 <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2">Experience</h2>
+                    <h2 class="ftco-heading-2">Link Terkait</h2>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="py-2 d-block">Adventure</a></li>
-                        <li><a href="#" class="py-2 d-block">Hotel and Restaurant</a></li>
-                        <li><a href="#" class="py-2 d-block">Beach</a></li>
-                        <li><a href="#" class="py-2 d-block">Nature</a></li>
-                        <li><a href="#" class="py-2 d-block">Camping</a></li>
-                        <li><a href="#" class="py-2 d-block">Party</a></li>
+                        <li><a href="https://www.kemenparekraf.go.id/" target="_blank" class="py-2 d-block">KEMENPAREKRAF</a></li>
+                        <li><a href="http://home.kuburayakab.go.id/" target="_blank" class="py-2 d-block">PEMKAB KUBU RAYA</a></li>
+                        <li><a href="#" target="_blank" class="py-2 d-block">DISPORAPARKKR</a></li>
+                        <li><a href="#" target="_blank" class="py-2 d-block">PARIWISATAKUBURAYA</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-md">
                 <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2">Have a Questions?</h2>
+                    <h2 class="ftco-heading-2">Kontak</h2>
                     <div class="block-23 mb-3">
                         <ul>
-                            <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-                            <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-                            <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+                            <li><span class="icon icon-map-marker"></span><span class="text">Jalan Angkasa Pura II Komplek Perkantoran Pemda, Sungai Raya</span></li>
+                            <li><a href="#"><span class="icon icon-phone"></span><span class="text">+62 896 8519 1803</span></a></li>
+                            <li><a href="#"><span class="icon icon-envelope"></span><span class="text">pariwisata kuburaya@gmail.com</span></a></li>
                         </ul>
                     </div>
                 </div>
@@ -58,7 +56,7 @@
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     Copyright &copy;<script>
                         document.write(new Date().getFullYear());
-                    </script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                    </script> All rights reserved | Pariwisata Kabupaten Kubu Raya <i class="icon-heart color-danger" aria-hidden="true"></i>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 </p>
             </div>
@@ -91,6 +89,7 @@
 <script src="<?= base_url(''); ?>/assets/assets_fe/js/google-map.js"></script>
 <script src="<?= base_url(''); ?>/assets/assets_fe/js/main.js"></script>
 
+<!-- <script src="owlcarousel/owl.carousel.min.js"></script> -->
 
 <!-- Always get the latest version -->
 <!-- Not recommended for production sites! -->
@@ -105,11 +104,22 @@
 <!-- Get a specific version -->
 <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0.0/dist/smooth-scroll.polyfills.min.js"></script>
 
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.js" integrity="sha512-YibiFIKqwi6sZFfPm5HNHQYemJwFbyyYHjrr3UT+VobMt/YBo1kBxgui5RWc4C3B4RJMYCdCAJkbXHt+irKfSA==" crossorigin="anonymous"></script>
+
+<script src="http://cdn-geoweb.s3.amazonaws.com/esri-leaflet/1.0.0-rc.2/esri-leaflet.js"></script>
+<script src="http://cdn-geoweb.s3.amazonaws.com/esri-leaflet-geocoder/0.0.1-beta.5/esri-leaflet-geocoder.js"></script>
 
 <script>
         $(document).on('click', '[data-toggle="lightbox"]', function(event) {
                 event.preventDefault();
                 $(this).ekkoLightbox();
+            });
+
+            $(document).ready(function(){
+                $(".owl-carousel").owlCarousel({
+                    margin:-280,
+                });
             });
     </script>

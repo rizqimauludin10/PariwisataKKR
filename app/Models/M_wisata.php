@@ -19,10 +19,9 @@ class M_wisata extends Model
         return $this->db->table('wisata')
             ->get()->getResultArray();
 
-        d($this->db->table('wisata')
-            // ->join('kategori', 'kategori.id=wisata.id_kategori', 'left')
-            ->orderBy('id', 'DESC')
-            ->get()->getResultArray());
+        // d($this->db->table('wisata')
+        //     ->orderBy('id', 'DESC')
+        //     ->get()->getResultArray());
     }
 
     public function search($keyword)
@@ -68,5 +67,15 @@ class M_wisata extends Model
     public function deleteWisata($slug)
     {
         return $this->db->table('wisata')->delete(['wisata_slug' => $slug]);
+    }
+
+    public function countKategori() {
+        //$this->db->select('id ,nama_kategori, COUNT(nama_kategori) as total ');
+        $this->db->query("SELECT * FROM wisata COUNT nama_kategori AS total;");
+        $this->db->group_by('nama_kategori'); 
+        $this->db->order_by('total', 'desc');
+        $hasil = $this->db->get('wisata');
+        d($hasil);
+        
     }
 }

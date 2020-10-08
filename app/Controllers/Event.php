@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\M_event;
 use App\Models\M_kategori;
+use App\Models\M_galleriEvent;
 
 class Event extends BaseController
 {
@@ -109,6 +110,7 @@ class Event extends BaseController
         }
 
         $model = new M_event();
+        $model2 = new M_galleriEvent();
         $slug = url_title($this->request->getVar('eventName'), '-', true);
 
         $data = [
@@ -117,6 +119,7 @@ class Event extends BaseController
             'event_name' => $this->request->getVar('eventName'),
             'event_slug' => $slug,
             'event_desc' => $this->request->getVar('eventDesc'),
+            'event_address' => $this->request->getVar('eventAddress'),
             'event_date' => $this->request->getVar('eventDate'),
             'event_lat' => $this->request->getVar('lat'),
             'event_lng' => $this->request->getVar('lang'),
@@ -125,7 +128,23 @@ class Event extends BaseController
         ];
 
         $model->insert($data);
-        // $last_id = $db->insertID();
+        $last_id = $db->insertID();
+
+        $file_image = $this->request->getFiles();
+
+        foreach ($file_image['eventUpload'] as $img) {
+            $gallery_file = $img->getRandomName();
+            $img->move('img/event/galleryevent', $gallery_file);
+
+            $event_gallery = [
+                'id_event' => $last_id,
+                // 'gallery_file' => $img->getRandomName()
+                'event_gallery_file' => $gallery_file
+            ];
+
+            $model2->insert($event_gallery);
+            // $img->move('img/wisata/gallerywisata', $img->getRandomName());
+        }
 
         return redirect()->to(base_url('event'));
     }

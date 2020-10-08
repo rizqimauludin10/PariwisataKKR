@@ -36,9 +36,11 @@ $routes->get('/login.rm', 'Admin::index');
 $routes->get('/f_destinasi.rm', 'F_destinasi::index');
 $routes->get('/f_event.rm', 'F_event::index');
 $routes->get('/f_peta_wisata.rm', 'F_Peta_Wisata::index');
+$routes->get('/f_profile.rm', 'F_Profile::index');
+// $routes->get('/f_about.rm', 'F_About::index');
 $routes->get('/wisata/detail/(:segment)', 'Wisata::getDetailWisata/$1');
 $routes->get('/f_wisata/detail/(:segment)', 'F_destinasi::detail/$1');
-$routes->get('/wisata/detail.rm', 'Wisata::detail');
+$routes->get('/f_event/detail/(:segment)', 'F_event::detailEvent/$1');
 
 //$routes->get('/f_destinasi.fh', 'F_destinasi::getAllDestination');
 //$routes->get('register', 'Admin::register');

@@ -10814,6 +10814,13 @@ h5,
   font-weight: 300;
 }
 
+.slider-text h2 {
+  font-size: 40px;
+  color: #fff;
+  line-height: 1.2;
+  font-weight: 300;
+}
+
 @media (max-width: 991.98px) {
   .slider-text h1 {
     font-size: 40px;
@@ -10821,11 +10828,13 @@ h5,
 }
 
 .slider-text p {
-  font-size: 20px;
+  font-size: 16px;
   line-height: 1.5;
-  font-weight: 300;
+  font-weight: 400;
   color: rgba(255, 255, 255, 0.9);
 }
+
+
 .slider-text p strong {
   font-weight: 700;
 }
@@ -10864,6 +10873,11 @@ h5,
 .slider-text .bread {
   font-weight: 700;
 }
+
+.slider-text .breadd {
+  font-weight: 400;
+}
+
 
 .icon-video {
   width: 80px;
@@ -11273,7 +11287,7 @@ textarea.form-control {
 }
 
 .ftco-section {
-  padding: 7em 0;
+  padding: 3em 0;
   position: relative;
   width: 100%;
 }
@@ -12365,6 +12379,108 @@ textarea.form-control {
   }
 }
 
-#map {
-  height: 100%;
+
+.w-40 {
+  width: 10rem;
 }
+
+.w-41 {
+  width: 8rem;
+}
+
+
+.text-blue-400 {
+  color: #63b3ed;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text-blue-401 {
+  color: #edc863;
+  text-align: center;
+}
+
+.text-blue-403 {
+  color: #edc863;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+.fill-current {
+  fill: currentColor;
+}
+
+.ftco-footer-social li {
+  list-style: none;
+  margin: 0 10px 0 0;
+  display: inline-block;
+}
+
+
+/* Event Social Media Icon */
+
+.ftco-footer-sociall li {
+  list-style: none;
+  margin: 0 10px 0 0;
+  display: inline-block;
+}
+
+.ftco-footer-sociall li a {
+  height: 40px;
+  width: 40px;
+  display: block;
+  float: left;
+  background: #2747BB;
+  border-radius: 50%;
+  position: relative;
+}
+.ftco-footer-sociall li a span {
+  position: absolute;
+  font-size: 20px;
+  top: 50%;
+  left: 50%;
+  color: #fff;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.ftco-footer-sociall li a:hover {
+  color: #fff;
+  
+}
+
+.ftco-footer .ftco-footer-widget ul li a span {
+  color: #fff;
+}
+
+/* Logo Navbar */
+.centering-demo {
+  display: flex;
+  place-items: center;
+  gap: .5ch;
+}
+
+.logo_dashboard {
+  max-block-size: 2em;
+}
+
+
+.dateEvent span {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333333;
+
+}
+
+.seeMaps a {
+  color: #fff;
+}
+
+.seeMaps span {
+  color: #fff;
+  font-family: "Poppins", Arial, sans-serif;
+}
+

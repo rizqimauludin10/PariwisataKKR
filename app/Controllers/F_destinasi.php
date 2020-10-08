@@ -21,8 +21,6 @@ class F_destinasi extends BaseController
         $currentPage = $this->request->getVar('page_wisata') ? $this->request->getVar('page_wisata') : 1;
 
         $keyword = $this->request->getVar('keyword');
-
-        $keyword = $this->request->getVar('keyword');
         if ($keyword) {
             $wisata = $this->wisataModel->search($keyword);
         } else {
@@ -38,9 +36,12 @@ class F_destinasi extends BaseController
                 ->orderBy('wisata.id', 'DESC')
                 ->paginate(18, 'f_wisata'),
             'f_kategori' => $this->kategoriModel->getKategori(),
+            // 'count' => $this->wisataModel->countKategori(),
             'pager' => $this->wisataModel->pager,
             'currentPage' => $currentPage
         ];
+
+        
 
         
         echo view('frontend/f_destinasi', $data);
@@ -48,16 +49,6 @@ class F_destinasi extends BaseController
         d($data);
     }
 
-    public function detailDestination($slug = false)
-    {
-        $data = [
-            'title' => 'Detail Wisata',
-            'wisata' => $this->wisataModel->getWisataAll($slug)
-
-        ];
-
-        return view('/f_wisata/detail', $data);
-    }
 
     public function detail($slug)
     {

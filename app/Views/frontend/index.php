@@ -4,8 +4,6 @@
                 <div class="centering-demo">
                     <img class="logo_dashboard" src="<?= base_url('../img/logomenanjak_new.png') ?>">
                     <img class="logo_dashboard" src="<?= base_url('../img/logorising_new.png') ?>">
-                    
-
                 </div>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,7 +15,8 @@
                     <li class="nav-item active"><a href="/" class="nav-link">Beranda</a></li>
                     <li class="nav-item"><a href="f_destinasi.rm" class="nav-link">Destinasi</a></li>
                     <li class="nav-item"><a href="f_event.rm" class="nav-link">Event</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Profil</a></li>
+                    <li class="nav-item"><a href="f_profile.rm" class="nav-link">Profil</a></li>
+                    <!-- <li class="nav-item"><a href="f_about.rm" class="nav-link">Tentang Kami</a></li> -->
                     <li class="nav-item cta"><a href="f_peta_wisata.rm" class="nav-link">Peta Wisata</a></li>
                 </ul>
             </div>
@@ -40,7 +39,7 @@
         </div>
     </div>
 
-    <!-- <section class="ftco-section ftco-no-pb ftco-no-pt">
+    <section class="ftco-section ftco-no-pb ftco-no-pt">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -113,7 +112,7 @@
                 </div>
             </div>
         </div>
-    </section> -->
+    </section>
 
     <section class="ftco-section services-section bg-light">
         <div class="container">

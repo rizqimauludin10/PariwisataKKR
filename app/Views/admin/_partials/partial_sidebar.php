@@ -103,9 +103,9 @@
 
 
           <li class="nav-item">
-              <a class="nav-link" href="<?= base_url('event/'); ?>">
+              <a class="nav-link" href="<?= base_url('hotel/'); ?>">
                   <i class="fas fa-fw fa-chart-area"></i>
-                  <span>Artikel</span></a>
+                  <span>Hotel</span></a>
           </li>
 
           <li class="nav-item">
