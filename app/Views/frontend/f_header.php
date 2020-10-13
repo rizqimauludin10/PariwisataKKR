@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Rising Kubu Raya</title>
+    <title>Rising Kubu Raya - <?= $f_header; ?></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -24,6 +24,7 @@
 
 
     <link rel="stylesheet" href="<?= base_url(''); ?>/assets/assets_fe/css/flaticon.css">
+    <link rel="stylesheet" href="<?= base_url(''); ?>/assets/fontawesome-free/css/all.min.css" >
     <link rel="stylesheet" href="<?= base_url(''); ?>/assets/assets_fe/css/icomoon.css">
     <link rel="stylesheet" href="<?= base_url(''); ?>/assets/assets_fe/css/style.css">
 
@@ -37,4 +38,6 @@
 
 
     <link rel="stylesheet" type="text/css" href="http://cdn-geoweb.s3.amazonaws.com/esri-leaflet-geocoder/0.0.1-beta.5/esri-leaflet-geocoder.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.0.1/tailwind.min.css">
 </head>

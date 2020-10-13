@@ -123,11 +123,11 @@
                 <div class="card">
                     <div class="row justify-content-center">
                         <div class="row p-4">
-                                 <div class="col-md-12">
+                                <div class="col-md-12">
                                     <h6 class="mb-4">
                                         <b>
                                             Galleri Destinasi Wisata <?= $wisata['wisata_name']; ?>
-                                         </b>
+                                        </b>
                                     </h6>
                                 </div>
                                 <?php foreach ($gallery as $row) : ?>

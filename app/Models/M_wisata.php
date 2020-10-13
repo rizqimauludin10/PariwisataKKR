@@ -54,6 +54,16 @@ class M_wisata extends Model
         return $data1;
     }
 
+    public function getWisataLanding() {
+        $this->db->table('wisata');
+        $this->join('kategori', 'kategori.id=wisata.id_kategori');
+        $this->orderBy('wisata.id', 'RANDOM');
+        $this->limit(6);
+        $data1 = $this->get()->getResultArray();
+
+        return $data1;
+    }
+
     public function getWisataGallery($slug)
     {
         $this->db->table('wisata');

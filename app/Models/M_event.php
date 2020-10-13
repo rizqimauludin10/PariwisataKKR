@@ -65,4 +65,14 @@ class M_event extends Model
         return $data1;
     }
 
+    public function getEventLanding() {
+        $this->db->table('event');
+        $this->join('kategori', 'kategori.id=event.id_kategori');
+        $this->orderBy('event.id', 'RANDOM');
+        $this->limit(3);
+        $data1 = $this->get()->getResultArray();
+
+        return $data1;
+    }
+
 }

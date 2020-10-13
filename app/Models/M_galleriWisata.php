@@ -20,4 +20,14 @@ class M_galleriWisata extends Model
             return $this->getWhere(['id' => $id]);
         }
     }
+
+    public function getWisataGalleryLanding()
+    {
+        $this->db->table('gallery_wisata');
+        $this->orderBy('gallery_wisata.id', 'RANDOM');
+        $this->limit(6);
+        $data1 = $this->get()->getResultArray();
+
+        return $data1;
+    }
 }

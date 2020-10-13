@@ -1,4 +1,4 @@
-<footer class="ftco-footer bg-bottom" style="background-image: url(images/footer-bg.jpg);">
+<footer class="ftco-footer bg-bottom" style="background-image: url(../assets/assets_fe/images/footer-bg_2.jpg);">
     <div class="container">
         <div class="row mb-5">
             <div class="col-md">
@@ -111,7 +111,7 @@
 <script src="http://cdn-geoweb.s3.amazonaws.com/esri-leaflet/1.0.0-rc.2/esri-leaflet.js"></script>
 <script src="http://cdn-geoweb.s3.amazonaws.com/esri-leaflet-geocoder/0.0.1-beta.5/esri-leaflet-geocoder.js"></script>
 
-<script>
+    <script>
         $(document).on('click', '[data-toggle="lightbox"]', function(event) {
                 event.preventDefault();
                 $(this).ekkoLightbox();

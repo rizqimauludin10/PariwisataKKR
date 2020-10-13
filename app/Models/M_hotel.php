@@ -23,6 +23,13 @@ class M_hotel extends Model {
         }
     }
 
+    public function getHotelLanding() {
+        $this->db->table('hotel');
+        $data1 = $this->get()->getRowArray();
+        return $data1;
+        
+    }
+
     public function getHotelGallery($slug)
     {
         $this->db->table('hotel');

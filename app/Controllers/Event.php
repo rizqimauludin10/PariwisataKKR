@@ -14,6 +14,7 @@ class Event extends BaseController
     {
         $this->eventModel = new M_event();
         $this->kategoriModel = new M_kategori();
+        helper('text');
     }
 
     public function index()

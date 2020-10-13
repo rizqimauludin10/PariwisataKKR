@@ -36,7 +36,7 @@
                                             <?= $row['event_name'] ?>
                                         </td>
                                         <td>
-                                            <?= $row['event_desc']; ?>
+                                        <?= character_limiter($row['event_desc'] , 80)?>
                                         </td>
 
                                         <td>

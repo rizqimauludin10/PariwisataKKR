@@ -48,7 +48,6 @@
                         </span>
                         <b> Lihat Peta </b></a> 
                     </div>
-                   
 
                 </div>
             </div>
